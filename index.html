@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/PathOfSurvivorsPrivate.loader.js";
+      var loaderUrl = buildUrl + "/PathOfSurvivorsPrivateTest.loader.js";
       var config = {
-        dataUrl: buildUrl + "/PathOfSurvivorsPrivate.data",
-        frameworkUrl: buildUrl + "/PathOfSurvivorsPrivate.framework.js",
-        codeUrl: buildUrl + "/PathOfSurvivorsPrivate.wasm",
+        dataUrl: buildUrl + "/PathOfSurvivorsPrivateTest.data",
+        frameworkUrl: buildUrl + "/PathOfSurvivorsPrivateTest.framework.js",
+        codeUrl: buildUrl + "/PathOfSurvivorsPrivateTest.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Limited Input",
         productName: "Path of Survivors",
@@ -99,14 +99,13 @@
       }
 
       loadingBar.style.display = "block";
-		var unityGame;
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-			  unityGame = unityInstance;
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
